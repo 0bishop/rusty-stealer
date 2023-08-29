@@ -7,6 +7,11 @@ Rusty-Grabber> time ./target/release/grabber
 0.00user 0.00system 0:00.72elapsed 0%CPU (0avgtext+0avgdata 5396maxresident)k
 0inputs+0outputs (1419major+0minor)pagefaults 0swaps
 ```
+```
+- Multithreading (Rayon, Tokio) -> Threading each path's and requests
+- Parallelism (Rayon, jwalk) -> All files read simultaneously, jwalk to go to each entries fastly
+- Mutex, Arc -> thread safety
+```
 
 ## Fill your Webhook in utils.rs :
 ```bash
