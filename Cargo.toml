@@ -4,7 +4,7 @@ version = "0.2.0"
 edition = "2021"
 
 [dependencies]
-aes-gcm = "0.10.2"
+aes-gcm = "0.10.3"
 regex = "1.9.3"
 base64 = "0.21.2"
 winapi = { version = "0.3.9", features = ["libloaderapi", "dpapi", "wincrypt", "tlhelp32", "wingdi",  "winuser", "memoryapi"] }
