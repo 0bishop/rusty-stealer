@@ -1,5 +1,5 @@
 # Rusty-Grabber 🚀
-- *a blazing fast Discord Token Grabber, no popo made with python*
+- *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
 
 ## Fastest Token Grabber **ever** :
 ```bash
