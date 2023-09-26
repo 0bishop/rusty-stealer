@@ -1,4 +1,4 @@
-# Rusty-Stealer 🚀
+# Rusty Stealer 🚀
 - *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
 
 ## Fastest Token Grabber & Stealer **ever** :
