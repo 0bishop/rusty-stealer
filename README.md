@@ -5,6 +5,7 @@
 
 ## Build :
 ```bash
+powershell
 $env:RUSTFLAGS = "-Zlocation-detail=none -Ctarget-cpu=native -Cdebuginfo=0 -Zstrip=symbols -Zstrip=debuginfo --remap-path-prefix  C:\Users\$env:USERNAME\.cargo\registry\src\=caca"
 cargo build --release
 ```
