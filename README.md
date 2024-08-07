@@ -1,8 +1,6 @@
 # Rusty Stealer 🚀
 - *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
 
-- if not working, discord: nnvm
-
 ## Build :
 ```bash
 powershell
