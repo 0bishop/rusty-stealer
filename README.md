@@ -1,5 +1,5 @@
 # Rusty Stealer 🚀
-- *a blazing fast Discord Token Grabber & Stealer, no popo made with python*
+- *a blazing fast Stealer, no popo made with python*
 
 ## Build :
 ```bash
