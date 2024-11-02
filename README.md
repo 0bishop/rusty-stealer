@@ -9,9 +9,9 @@ cargo build --release
 ```
 - **--remap-path-prefix** remove your PC username in the output binary
 
-## Fastest Grabber & Stealer **ever** :
+## Fastest Stealer **ever** :
 ```bash
-Rusty-Grabber> time ./target/release/grabber
+Rusty> time ./target/release/stealer
 0.00user 0.00system 0:00.72elapsed 0%CPU (0avgtext+0avgdata 5396maxresident)k
 0inputs+0outputs (1419major+0minor)pagefaults 0swaps
 ```
